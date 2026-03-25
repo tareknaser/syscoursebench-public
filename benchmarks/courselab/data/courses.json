@@ -1,0 +1,9 @@
+{
+  "courses": [
+    {
+      "course_id": "distributed_systems",
+      "category": "Distributed Systems",
+      "num_tasks": 1
+    }
+  ]
+}

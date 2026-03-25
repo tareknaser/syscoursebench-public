@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 270" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="9" markerHeight="7" orient="auto-start-auto">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#555"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="9" markerHeight="7" orient="auto-start-auto">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#4A7FB5"/>
+    </marker>
+    <marker id="arrow-left" viewBox="0 0 10 7" refX="1" refY="3.5" markerWidth="9" markerHeight="7">
+      <path d="M 10 0 L 0 3.5 L 10 7 z" fill="#5B7EA1"/>
+    </marker>
+  </defs>
+
+  <!-- ==========================================================
+       LAYOUT GRID — all positions validated:
+       
+       Zone 1:  x=10,  w=280, right=290, cx=150
+       Arrow 1: 290→322 (32px)
+       Zone 2:  x=326, w=400, right=726, cx=526
+         Card:    x=340, w=148, right=488, cx=414
+         Arrow:   488→516
+         Agent:   x=520, w=96,  right=616, cx=568
+         Arrows:  616→652 (36px gap)
+         Env:     x=656, w=58,  right=714, cx=685
+       Arrow 2: 726→758 (32px)
+       Zone 3:  x=762, w=182, right=944, cx=853
+       
+       Vertical midline: y=148
+       Phase labels: y=20
+       ========================================================== -->
+
+  <!-- ==================== PHASE LABELS ==================== -->
+
+  <text x="150" y="20" font-size="15" font-weight="700" fill="#444" text-anchor="middle" letter-spacing="0.8">TASK DEFINITION</text>
+  <text x="526" y="20" font-size="15" font-weight="700" fill="#444" text-anchor="middle" letter-spacing="0.8">AGENT INTERACTION</text>
+  <text x="853" y="20" font-size="15" font-weight="700" fill="#444" text-anchor="middle" letter-spacing="0.8">GRADING</text>
+
+  <!-- ==================== ZONE 1: Task Definition ==================== -->
+  <!-- Box: x=10, y=34, w=280, h=228 -->
+
+  <rect x="10" y="34" width="280" height="228" rx="8" fill="#FAFAFA" stroke="#D8D8D8" stroke-width="1.2"/>
+
+  <text x="24" y="60" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="15" font-weight="700" fill="#333">task_1_mapreduce/</text>
+
+  <!-- config.json — y=86 -->
+  <text x="24" y="86" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" fill="#555">├── config.json</text>
+  <text x="170" y="86" font-size="11" fill="#999" font-weight="500">Metadata, tags</text>
+
+  <!-- task.md — y=110, highlight y=98..120 -->
+  <rect x="17" y="98" width="266" height="22" rx="3" fill="#E8F0FA" opacity="0.7"/>
+  <text x="24" y="114" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" fill="#2D6AA0" font-weight="700">├── task.md</text>
+  <text x="170" y="114" font-size="11" fill="#4A7FB5" font-weight="600">Problem → agent</text>
+
+  <!-- compose.yaml — y=138 -->
+  <text x="24" y="138" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" fill="#555">├── compose.yaml</text>
+  <text x="170" y="138" font-size="11" fill="#999" font-weight="500">Docker env</text>
+
+  <!-- evaluate.sh — y=162, highlight y=150..172 -->
+  <rect x="17" y="150" width="266" height="22" rx="3" fill="#E8F5EC" opacity="0.7"/>
+  <text x="24" y="166" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" fill="#3D7A4F" font-weight="700">├── evaluate.sh</text>
+  <text x="170" y="166" font-size="11" fill="#5A9E6F" font-weight="600">Grading script</text>
+
+  <!-- starter/ — y=190 -->
+  <text x="24" y="190" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" fill="#555">├── starter/</text>
+  <text x="170" y="190" font-size="11" fill="#999" font-weight="500">Code skeleton</text>
+
+  <!-- preprocess.sh — y=214 -->
+  <text x="24" y="214" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" fill="#555">├── preprocess.sh</text>
+  <text x="170" y="214" font-size="11" fill="#999" font-weight="500">Pre-agent setup</text>
+
+  <!-- sol.sh — y=240, highlight y=228..250 -->
+  <rect x="17" y="228" width="266" height="22" rx="3" fill="#F5F0F0" opacity="0.5"/>
+  <text x="24" y="244" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="13" fill="#999">└── sol.sh</text>
+  <text x="170" y="244" font-size="11" fill="#B0A0A0" font-weight="500">🔒 <tspan font-style="italic">Validation only</tspan></text>
+
+  <!-- ==================== ARROW 1 (y=148) ==================== -->
+
+  <line x1="290" y1="148" x2="322" y2="148" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ==================== ZONE 2: Agent Interaction ==================== -->
+  <!-- Box: x=326, y=30, w=400, h=232 -->
+
+  <rect x="326" y="30" width="400" height="232" rx="10" fill="#F4F6F8" stroke="#BCC5CE" stroke-width="1.5"/>
+
+  <text x="526" y="50" font-size="13" fill="#8896A4" text-anchor="middle" font-style="italic">🐳 Docker container (isolated, reproducible)</text>
+
+  <!-- task.md preview card: x=340, y=60, w=148, h=192 → cx=414 -->
+  <rect x="340" y="60" width="148" height="192" rx="5" fill="#fff" stroke="#A8C4E0" stroke-width="1"/>
+  <rect x="340" y="60" width="148" height="22" rx="5" fill="#E8F0FA"/>
+  <rect x="340" y="74" width="148" height="8" fill="#E8F0FA"/>
+  <text x="414" y="76" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="12" fill="#2D6AA0" text-anchor="middle" font-weight="700">task.md</text>
+
+  <text x="352" y="98" font-size="10" font-weight="700" fill="#444">Introduction</text>
+  <rect x="352" y="103" width="122" height="3" rx="1" fill="#DDD"/>
+  <rect x="352" y="109" width="100" height="3" rx="1" fill="#DDD"/>
+  <rect x="352" y="115" width="112" height="3" rx="1" fill="#DDD"/>
+
+  <text x="352" y="132" font-size="10" font-weight="700" fill="#444">Your Task</text>
+  <rect x="352" y="137" width="118" height="3" rx="1" fill="#DDD"/>
+  <rect x="352" y="143" width="106" height="3" rx="1" fill="#DDD"/>
+  <rect x="352" y="149" width="124" height="3" rx="1" fill="#DDD"/>
+  <rect x="352" y="155" width="92" height="3" rx="1" fill="#DDD"/>
+
+  <text x="352" y="172" font-size="10" font-weight="700" fill="#444">Testing</text>
+  <rect x="352" y="177" width="122" height="22" rx="3" fill="#F0F0F0" stroke="#E0E0E0" stroke-width="0.5"/>
+  <text x="358" y="187" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="8" fill="#666">$ bash test-mr.sh</text>
+  <text x="358" y="196" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="8" fill="#666">*** PASSED ALL TESTS</text>
+
+  <text x="352" y="215" font-size="10" font-weight="700" fill="#444">Files to Modify</text>
+  <text x="358" y="227" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="8" fill="#888">src/mr/coordinator.go</text>
+  <text x="358" y="238" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="8" fill="#888">src/mr/worker.go</text>
+
+  <!-- Arrow: card → agent (y=148) -->
+  <line x1="488" y1="148" x2="516" y2="148" stroke="#4A7FB5" stroke-width="1.3" marker-end="url(#arrow-accent)"/>
+
+  <!-- LLM Agent box: x=520, y=108, w=96, h=80 → cx=568, cy=148 -->
+  <rect x="520" y="108" width="96" height="80" rx="7" fill="#fff" stroke="#5B7EA1" stroke-width="1.5"/>
+  <text x="568" y="142" font-size="26" text-anchor="middle">🤖</text>
+  <text x="568" y="174" font-size="14" font-weight="700" fill="#3D5A80" text-anchor="middle">LLM Agent</text>
+
+  <!-- Env box: x=656, y=108, w=58, h=80 → cx=685, cy=148 -->
+  <rect x="656" y="108" width="58" height="80" rx="7" fill="#fff" stroke="#8896A4" stroke-width="1.2"/>
+  <rect x="672" y="116" width="26" height="16" rx="2" fill="#2D3748"/>
+  <text x="678" y="128" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="10" fill="#68D391">$_</text>
+  <text x="685" y="156" font-size="13" font-weight="700" fill="#3D5A80" text-anchor="middle">Env</text>
+
+
+  <!-- Loop arrows: Agent right (616) ↔ Env left (656) -->
+  <path d="M 616 132 L 652 132" fill="none" stroke="#5B7EA1" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <path d="M 652 160 L 616 160" fill="none" stroke="#5B7EA1" stroke-width="1.5" marker-end="url(#arrow-left)"/>
+
+  <!-- ==================== ARROW 2 (y=148) ==================== -->
+
+  <line x1="726" y1="148" x2="758" y2="148" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ==================== ZONE 3: Grading ==================== -->
+  <!-- Box: x=762, y=84, w=182, h=136 → cx=853, cy=152 -->
+
+  <rect x="762" y="84" width="182" height="136" rx="8" fill="#FAFAFA" stroke="#D8D8D8" stroke-width="1.2"/>
+
+  <!-- evaluate.sh pill: w=144, cx=853 → x=781 -->
+  <rect x="781" y="96" width="144" height="30" rx="5" fill="#E8F5EC" stroke="#A8D5B8" stroke-width="1"/>
+  <text x="853" y="117" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="14" fill="#3D7A4F" text-anchor="middle" font-weight="700">evaluate.sh</text>
+
+  <!-- "Runs course test suite" at cx=853 -->
+  <text x="853" y="146" font-size="13" fill="#777" text-anchor="middle" font-weight="500">Runs course test suite</text>
+
+  <!-- Pass/Fail: each w=78, gap=12 → total=168, cx=853 → start=769 -->
+  <rect x="769" y="156" width="78" height="30" rx="5" fill="#D4EDDA" stroke="#A8D5B8" stroke-width="1"/>
+  <text x="808" y="177" font-size="14" fill="#2D7A3E" font-weight="700" text-anchor="middle">✓ Pass</text>
+
+  <rect x="859" y="156" width="78" height="30" rx="5" fill="#F8D7DA" stroke="#E8A8AE" stroke-width="1"/>
+  <text x="898" y="177" font-size="14" fill="#9B2C35" font-weight="700" text-anchor="middle">✗ Fail</text>
+
+  <!-- Exit codes centered under each box -->
+  <text x="808" y="203" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="11" fill="#AAA" text-anchor="middle">exit 0</text>
+  <text x="898" y="203" font-family="'SF Mono','Menlo','Consolas',monospace" font-size="11" fill="#AAA" text-anchor="middle">exit ≠ 0</text>
+
+</svg>

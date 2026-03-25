@@ -1,0 +1,26 @@
+name: Lint Courselab Tasks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'benchmarks/courselab/data/**'
+      - '.github/scripts/lint-courselab.sh'
+      - '.github/workflows/lint-courselab.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'benchmarks/courselab/data/**'
+      - '.github/scripts/lint-courselab.sh'
+      - '.github/workflows/lint-courselab.yml'
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run courselab reproducibility checks
+        run: .github/scripts/lint-courselab.sh
