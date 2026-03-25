@@ -10,9 +10,9 @@ SysCourseBench pairs two benchmarks (CourseExam and CourseLab) to measure both w
 > The private repository is access-controlled. To gain access, please reach out on our [Slack channel](https://join.slack.com/t/sys-intelligence/shared_invite/zt-3hpkgr2aa-NnuPxUbyHr45S89DFi_N1A).
 
 > [!Note]
-> This is the verified branch of the benchmark. All tasks here have passed the full validation pipeline: oracle solution verification, reviewer approval, multi-model testing, and the contributor checklist.
+> This is the Community branch of the benchmark. Tasks here are contributed by instructors through a lighter-weight process — they meet a minimal bar (valid Docker configuration and CI tests) but skip the multi-reviewer audit and multi-model debugging rounds. Results from community tasks still appear on the leaderboard.
 >
-> For Community tasks -- contributed by instructors through a lighter-weight process (valid Docker configuration and CI tests, but without multi-reviewer audit and multi-model debugging rounds) -- see the [`community`](https://github.com/sys-intelligence/syscoursebench/tree/community) branch. Results from community tasks still appear on the leaderboard.
+> For Verified tasks — which go through the full validation pipeline (oracle solution verification, reviewer approval, multi-model testing, and the contributor checklist) — see the [`main`](https://github.com/sys-intelligence/syscoursebench/tree/main) branch.
 
 A model can ace a systems exam yet fail to build the system it describes.
 CourseExam and CourseLab are the first paired benchmarks that measure both systems knowledge through real university exams and implementation ability through real programming labs.

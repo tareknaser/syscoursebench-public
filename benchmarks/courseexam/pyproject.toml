@@ -1,6 +1,6 @@
 [project]
 name = "courseexam-bench"
-version = "0.1.0+public"
+version = "0.1.0+public.community"
 description = "Course Exam Benchmark - Evaluate LLMs on systems course exam questions"
 requires-python = ">=3.10"
 dependencies = ["inspect-ai>=0.3.0"]
