@@ -17,8 +17,8 @@ jobs:
       fail-fast: false
       matrix:
         benchmark:
-          - courselab
-          - courseexam
+          - syslab
+          - sysexam
 
     steps:
     - name: Checkout code

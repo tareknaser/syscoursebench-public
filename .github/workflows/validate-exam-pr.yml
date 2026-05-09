@@ -1,4 +1,4 @@
-name: Experimental courseexam benchmark run
+name: Experimental SysExam benchmark run
 
 on:
   workflow_dispatch:
@@ -37,8 +37,8 @@ jobs:
         run: |
           git fetch origin main
           EXAM_DIRS=$(git diff --name-only origin/main...HEAD | \
-            grep -E '^benchmarks/courseexam/data/raw/[^/]+/exam\.md$' | \
-            sed 's|/exam\.md||' | sed 's|benchmarks/courseexam/data/raw/||' | sort -u)
+            grep -E '^benchmarks/sysexam/data/raw/[^/]+/exam\.md$' | \
+            sed 's|/exam\.md||' | sed 's|benchmarks/sysexam/data/raw/||' | sort -u)
 
           if [ -z "$EXAM_DIRS" ]; then
             echo "No new or modified exams detected"
@@ -58,12 +58,12 @@ jobs:
 
       - name: Install dependencies
         if: steps.detect_exams.outputs.has_exams == 'true'
-        working-directory: benchmarks/courseexam
+        working-directory: benchmarks/sysexam
         run: pip install -e . inspect-ai anthropic
 
       - name: Prepare dataset and run evaluation
         if: steps.detect_exams.outputs.has_exams == 'true'
-        working-directory: benchmarks/courseexam
+        working-directory: benchmarks/sysexam
         env:
           ANTHROPIC_API_KEY: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           EXAM_IDS: ${{ steps.detect_exams.outputs.exam_ids }}
@@ -74,11 +74,11 @@ jobs:
           python << 'EOF'
           import os
           from inspect_ai import eval
-          from courseexam.courseexam import courseexam
+          from sysexam.sysexam import sysexam
 
           exam_ids = [x.strip() for x in os.environ['EXAM_IDS'].split(',') if x.strip()]
 
-          task = courseexam(exam_ids=exam_ids, judge_model="anthropic/claude-haiku-4-5")
+          task = sysexam(exam_ids=exam_ids, judge_model="anthropic/claude-haiku-4-5")
           eval(tasks=task, model="anthropic/claude-haiku-4-5")
           EOF
 
@@ -87,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: evaluation-results
-          path: benchmarks/courseexam/logs/*.eval
+          path: benchmarks/sysexam/logs/*.eval
           retention-days: 30
 
       - name: Comment on PR
@@ -96,7 +96,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           cat > comment.md << EOF
-          ## Experimental courseexam benchmark run
+          ## Experimental SysExam benchmark run
 
           **Exams tested:**
           $(echo "${{ steps.detect_exams.outputs.exam_ids }}" | tr ',' '\n' | sed 's/^/- `/' | sed 's/$/`/')
