@@ -1,33 +1,33 @@
-# SysCourseBench
+# SysEduBench
 
 Benchmarking LLM Systems Knowledge and Implementation Ability
 
-SysCourseBench pairs two benchmarks (CourseExam and CourseLab) to measure both what models know about systems and whether they can actually build them.
+SysEduBench pairs two benchmarks (SysExam and SysLab) to measure both what models know about systems and whether they can actually build them.
 
 > [!Note]
-> This repository contains the public portion of the benchmark dataset. We also maintain a [private repository](https://github.com/sys-intelligence/syscoursebench-private) that contains private course material (exams and lab assignments). If you would like to contribute exams or labs while keeping them private and confidential, please contribute via the private repository instead.
+> This repository contains the public portion of the benchmark dataset. We also maintain a [private repository](https://github.com/sys-intelligence/sysedubench-private) that contains private course material (exams and lab assignments). If you would like to contribute exams or labs while keeping them private and confidential, please contribute via the private repository instead.
 >
 > The private repository is access-controlled. To gain access, please reach out on our [Slack channel](https://join.slack.com/t/sys-intelligence/shared_invite/zt-3hpkgr2aa-NnuPxUbyHr45S89DFi_N1A).
 
 > [!Note]
 > This is the verified branch of the benchmark. All tasks here have passed the full validation pipeline: oracle solution verification, reviewer approval, multi-model testing, and the contributor checklist.
 >
-> For Community tasks -- contributed by instructors through a lighter-weight process (valid Docker configuration and CI tests, but without multi-reviewer audit and multi-model debugging rounds) -- see the [`community`](https://github.com/sys-intelligence/syscoursebench/tree/community) branch. Results from community tasks still appear on the leaderboard.
+> For Community tasks -- contributed by instructors through a lighter-weight process (valid Docker configuration and CI tests, but without multi-reviewer audit and multi-model debugging rounds) -- see the [`community`](https://github.com/sys-intelligence/sysedubench/tree/community) branch. Results from community tasks still appear on the leaderboard.
 
 A model can ace a systems exam yet fail to build the system it describes.
-CourseExam and CourseLab are the first paired benchmarks that measure both systems knowledge through real university exams and implementation ability through real programming labs.
+SysExam and SysLab are the first paired benchmarks that measure both systems knowledge through real university exams and implementation ability through real programming labs.
 
 <figure>
-  <img src="figures/overview.svg" alt="Overview of CourseExam and CourseLab" />
+  <img src="figures/overview.svg" alt="Overview of SysExam and sysLab" />
 </figure>
 
-## CourseExam
+## SysExam
 
 Closed-book exam format: multiple choice, true/false, and free-response questions graded by exact match or LLM-as-judge.
 
 See [benchmarks/courseexam/README.md](benchmarks/courseexam/README.md) for setup and usage.
 
-## CourseLab
+## SysLab
 
 Agents write and debug code inside isolated Docker containers, graded by each course's original test suite.
 
