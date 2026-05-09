@@ -1,0 +1,26 @@
+name: Lint SysLab Tasks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'benchmarks/syslab/data/**'
+      - '.github/scripts/lint-syslab.sh'
+      - '.github/workflows/lint-syslab.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'benchmarks/syslab/data/**'
+      - '.github/scripts/lint-syslab.sh'
+      - '.github/workflows/lint-syslab.yml'
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run SysLab reproducibility checks
+        run: .github/scripts/lint-syslab.sh
