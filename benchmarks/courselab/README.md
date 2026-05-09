@@ -1,4 +1,4 @@
-# Course Lab Benchmark
+# SysLab
 
 Evaluate AI agents on systems programming lab assignments.
 
